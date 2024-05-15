@@ -22,7 +22,7 @@ app.get( '/login', ( req, res ) => {
 } )
 
 app.get( '/test', ( req, res ) => {
-	res.json( { bukg: 'fhsadf'} )
+	res.json( { tl: 'Pankaj Sir', jtl: 'Suraj Sir'} )
 } )
 
 app.listen( port, () => {
