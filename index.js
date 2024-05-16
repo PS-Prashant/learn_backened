@@ -7,7 +7,7 @@ const express = require('express')
 const app = express()
 
 // const port = 3000 || 4000
-const port = process.env.PORT;
+const port = process.env.PORT  || 4000;
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
@@ -22,7 +22,7 @@ app.get( '/login', ( req, res ) => {
 } )
 
 app.get( '/test', ( req, res ) => {
-	res.json( { tl: 'Pankaj Sir', jtl: 'Suraj Sir'} )
+	res.json( { tl: 'Pankaj Sir', jtl: 'Suraj Sir', sr: 'secrity'} )
 } )
 
 app.listen( port, () => {
