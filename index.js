@@ -11,10 +11,22 @@ const app = express()
 // const port = 3000 || 4000
 const port = process.env.PORT  || 4000;
 
-app.use(cors( {
-    origin: ["*"],
-    credentials: true
-}));
+app.use(cors());
+
+//------------cors--------------------
+app.use(function (req, res, next) {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.set('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Refresh-Access-Token,Accept, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers,xAccessToken,Authorization');
+  // intercept OPTIONS method
+  if (req.method == 'OPTIONS') {
+    res.sendStatus(204).end();
+  } else {
+    next();
+  }
+});
+//-----------------------------------
 // app.use(cors({
 // 	origin: 'http://localhost:4200' // Replace with your frontend URL
 // }));
