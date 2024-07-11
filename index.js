@@ -12,8 +12,7 @@ const app = express()
 const port = process.env.PORT  || 4000;
 
 app.use(cors( {
-	origin: ["*"],
-    // origin: ["http://localhost:4400"],
+    origin: ["*"],
     credentials: true
 }));
 // app.use(cors({
