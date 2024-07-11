@@ -1,4 +1,6 @@
 require('dotenv').config()
+
+const cors = require('cors')
 // import 'dotenv/config'
 
 const express = require('express')  
@@ -8,6 +10,15 @@ const app = express()
 
 // const port = 3000 || 4000
 const port = process.env.PORT  || 4000;
+
+app.use(cors( {
+	origin: ["*"],
+    // origin: ["http://localhost:4400"],
+    credentials: true
+}));
+// app.use(cors({
+// 	origin: 'http://localhost:4200' // Replace with your frontend URL
+// }));
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
